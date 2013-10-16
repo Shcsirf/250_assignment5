@@ -1,7 +1,7 @@
 //Assignment 5
 #include <iostream>
 #include <vector>
-#include <stack>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,15 +33,26 @@ int recursive_count(const vector<int>& vec, int key, size_t start){
 //problem 2
 //iterative solution
 int iterative_kth_element(vector<int>& vec, size_t k){
+	vector<int> temp(vec);	//copy of vec
+	sort(temp.begin(),temp.end());	//sort temp
+	return temp.at(k-1);
+}
+//recursive solution
+int recursive_kth_element(vector<int>& vec, size_t k){
+	int min=vec.at(k-1);
+	if(k>0){
+		
+
 }
 int main(){
 	vector<int> vec;
 	vec.push_back(1);
-	vec.push_back(2);
+	vec.push_back(4);
 	vec.push_back(3);
 	vec.push_back(2);
 	int ret=recursive_count(vec,2,0);
 	int ret2=iterative_count(vec,2);
-	cout << ret << endl << ret2 << endl;
+	int ret3=iterative_kth_element(vec,2);
+	cout << ret << endl << ret2 << endl << ret3 << endl;
 	return 0;
 }
