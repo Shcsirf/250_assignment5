@@ -24,3 +24,24 @@ int recursive_count(const vector<int>& vec, int key, size_t start){
 	return ret;
 }
 Problem 2:
+//iterative solution
+int iterative_kth_element(vector<int>& vec, size_t k){
+	vector<int> temp(vec);	//copy of vec
+	sort(temp.begin(),temp.end());	//sort temp
+	return temp.at(k-1);
+}
+//recursive solution
+int recursive_kth_element(vector<int>& vec, size_t k){
+	int min=0;
+	for(int i=0; i<vec.size();i++){
+		if(vec.at(i)<vec.at(min)){
+			min = i;
+		}
+	}
+	if(k==1){
+		return vec.at(min);
+	}
+	vec.erase(vec.begin()+min);
+	recursive_kth_element(vec,k-1);
+}
+Problem 3:

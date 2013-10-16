@@ -39,6 +39,29 @@ int iterative_kth_element(vector<int>& vec, size_t k){
 }
 //recursive solution
 int recursive_kth_element(vector<int>& vec, size_t k){
+	int min=0;
+	for(int i=0; i<vec.size();i++){
+		if(vec.at(i)<vec.at(min)){
+			min = i;
+		}
+	}
+	if(k==1){
+		return vec.at(min);
+	}
+	vec.erase(vec.begin()+min);
+	recursive_kth_element(vec,k-1);
+}
+//problem 3
+int make_change(int n){
+	//pennies 1
+	//nickels 5
+	//dimes 10
+	//quaters 25
+	//dollar 100
+	//five 500
+	//ten 1000
+	//twenty 2000
+	//hundred 10000
 }
 int main(){
 	vector<int> vec;
@@ -46,10 +69,14 @@ int main(){
 	vec.push_back(4);
 	vec.push_back(3);
 	vec.push_back(2);
+	vec.push_back(9);
+	vec.push_back(8);
+	vec.push_back(15);
+	vec.push_back(5);
 	int ret=recursive_count(vec,2,0);
 	int ret2=iterative_count(vec,2);
-	int ret3=iterative_kth_element(vec,2);
-	int ret4=recursive_kth_element(vec,2);
-	cout << ret << endl << ret2 << endl << ret3 << endl;
+	int ret3=iterative_kth_element(vec,4);
+	int ret4=recursive_kth_element(vec,4);
+	cout << ret3 << endl << ret4 << endl;
 	return 0;
 }

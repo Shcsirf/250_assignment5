@@ -1,2 +1,2 @@
 all:
-	g++ -g assignment5.cpp
+	g++ -g -o hw5 homework5.cpp
