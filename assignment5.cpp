@@ -39,10 +39,14 @@ int iterative_kth_element(vector<int>& vec, size_t k){
 }
 //recursive solution
 int recursive_kth_element(vector<int>& vec, size_t k){
-	int min=vec.at(k-1);
-	if(k>0){
+	//solution found on stack overflow
+	int i=;
+	int j;
+	int pivot
+	vector<int> max;
+	int pivot = vec.at(vec.size()/2);
+	for(int i=0;i<vec.size();i++){
 		
-
 }
 int main(){
 	vector<int> vec;
