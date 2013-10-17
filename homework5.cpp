@@ -62,7 +62,7 @@ int compute_change(int n, int c){
 	if(n<0||c<0){
 		return 0;
 	}
-	return make_change(n,c-1)+make_change(n-currency[c],c);
+	return compute_change(n,c-1)+compute_change(n-currency[c],c);
 }
 int make_change(int n){
 	compute_change(n,size-1);
@@ -83,7 +83,7 @@ int main(int n, char* array[]){
 	int ret3=iterative_kth_element(vec,4);
 	int ret4=recursive_kth_element(vec,9);
 	*/
-	int ret5=make_change(atoi(array[1]);
+	int ret5=make_change(atoi(array[1]));
 	cout << ret5 << endl;
 	return 0;
 }

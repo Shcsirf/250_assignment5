@@ -45,7 +45,8 @@ int recursive_kth_element(vector<int>& vec, size_t k){
 	recursive_kth_element(vec,k-1);
 }
 Problem 3:
-//pass in n #number of pennies into the make_change method
+//Recursive Approach
+//pass in n #number of pennies, and c largest currency value excepted
 int currency[]={1,5,10,25,100,500,1000,2000,10000};
 int size = sizeof(currency)/sizeof(int);
 int compute_change(int n, int c){
@@ -55,7 +56,7 @@ int compute_change(int n, int c){
 	if(n<0||c<0){
 		return 0;
 	}
-	return make_change(n,c-1)+make_change(n-currency[c],c);
+	return compute_change(n,c-1)+compute_change(n-currency[c],c);
 }
 int make_change(int n){
 	compute_change(n,size-1);
