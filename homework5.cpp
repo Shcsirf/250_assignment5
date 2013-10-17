@@ -52,18 +52,23 @@ int recursive_kth_element(vector<int>& vec, size_t k){
 	recursive_kth_element(vec,k-1);
 }
 //problem 3
-int make_change(int n){
-	//pennies 1
-	//nickels 5
-	//dimes 10
-	//quaters 25
-	//dollar 100
-	//five 500
-	//ten 1000
-	//twenty 2000
-	//hundred 10000
+//pass in n #number of pennies, and c largest currency value excepted
+int currency[]={1,5,10,25,100,500,1000,2000,10000};
+int size = sizeof(currency)/sizeof(int);
+int compute_change(int n, int c){
+	if(n==0){
+		return 1;
+	}
+	if(n<0||c<0){
+		return 0;
+	}
+	return make_change(n,c-1)+make_change(n-currency[c],c);
 }
-int main(){
+int make_change(int n){
+	compute_change(n,size-1);
+}
+int main(int n, char* array[]){
+	/*
 	vector<int> vec;
 	vec.push_back(1);
 	vec.push_back(4);
@@ -76,7 +81,9 @@ int main(){
 	int ret=recursive_count(vec,2,0);
 	int ret2=iterative_count(vec,2);
 	int ret3=iterative_kth_element(vec,4);
-	int ret4=recursive_kth_element(vec,4);
-	cout << ret3 << endl << ret4 << endl;
+	int ret4=recursive_kth_element(vec,9);
+	*/
+	int ret5=make_change(atoi(array[1]);
+	cout << ret5 << endl;
 	return 0;
 }
